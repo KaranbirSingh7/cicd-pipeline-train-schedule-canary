@@ -40,6 +40,12 @@ pipeline {
         }
 
         stage('CanaryDeploy') {
+            when {
+                branch 'master'
+            }
+            environment {
+                CANARY_REPLICAS = 3
+            }
             kubernetesDeploy(
                 kubeconfigId: 'kubeconfig',
                 configs: 'train-schedule-kube-canary.yml',
