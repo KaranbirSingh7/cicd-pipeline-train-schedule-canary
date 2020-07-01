@@ -3,6 +3,7 @@ pipeline {
     environment {
         //be sure to replace "karanbirsingh" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "karanbirsingh/train-schedule"
+        CANARY_REPLICAS = 3
     }
     stages {
         stage('Build') {
